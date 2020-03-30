@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Mac 下，PHP 与 memcache 的搭配食用 | MOV vx, 0x0b | 生活不止诗和远方，还有眼前的苟且</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#512DA8">
+    
+    
+    <meta name="keywords" content="PHP,memcache">
+    <meta name="description" content="昨日，朋友遇到一个问题，需要在 Mac 下安装 memcache 服务，并与 PHP 搭配食用。一开始还以为很简单，只要按照流程安装就好了。不曾想，全是坑啊全是坑啊全是坑！解决不易，作此记录。">
+<meta name="keywords" content="PHP,memcache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 下，PHP 与 memcache 的搭配食用">
+<meta property="og:url" content="http://veleven.tk/2019/05/21/php-and-memcache-in-mac/index.html">
+<meta property="og:site_name" content="MOV vx, 0x0b">
+<meta property="og:description" content="昨日，朋友遇到一个问题，需要在 Mac 下安装 memcache 服务，并与 PHP 搭配食用。一开始还以为很简单，只要按照流程安装就好了。不曾想，全是坑啊全是坑啊全是坑！解决不易，作此记录。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-27T09:10:25.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac 下，PHP 与 memcache 的搭配食用">
+<meta name="twitter:description" content="昨日，朋友遇到一个问题，需要在 Mac 下安装 memcache 服务，并与 PHP 搭配食用。一开始还以为很简单，只要按照流程安装就好了。不曾想，全是坑啊全是坑啊全是坑！解决不易，作此记录。">
+    
+        <link rel="alternate" type="application/atom+xml" title="MOV vx, 0x0b" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/static/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/static/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Veleven</h5>
+          <a href="mailto:1878957669@qq.com" title="1878957669@qq.com" class="mail">1878957669@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://google.veleven.tk" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google 镜像
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.0x08.org/docs/hacker-howto.html#hacker-howto" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                如何成为黑客
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Mac 下，PHP 与 memcache 的搭配食用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Mac 下，PHP 与 memcache 的搭配食用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-21T13:00:35.000Z" itemprop="datePublished" class="page-time">
+  2019-05-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">基础环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-memcached"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装 memcached</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-memcached-的-PHP-扩展"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装 memcached 的 PHP 扩展</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-php-and-memcache-in-mac"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Mac 下，PHP 与 memcache 的搭配食用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-21 21:00:35" datetime="2019-05-21T13:00:35.000Z"  itemprop="datePublished">2019-05-21</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>昨日，朋友遇到一个问题，需要在 Mac 下安装 memcache 服务，并与 PHP 搭配食用。一开始还以为很简单，只要按照流程安装就好了。不曾想，全是坑啊全是坑啊全是坑！解决不易，作此记录。</p>
+<a id="more"></a>
+<h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><p>Mac OS 10.12.2 + PHP 7.1</p>
+<h3 id="安装-memcached"><a href="#安装-memcached" class="headerlink" title="安装 memcached"></a>安装 memcached</h3><ul>
+<li>安装 memcached-1.4.34，需要 libevent-2.0.22-stable</li>
+<li>安装 libevent-2.0.22-stable，需要 openssl-1.0.x</li>
+</ul>
+<p>注：libevent-2.1.x 则需要 openssl-1.1.x，详见：<a href="https://github.com/libevent/libevent/issues/410" target="_blank" rel="noopener">Build fails on OSX El Capitan 10.11.6 with openssl</a></p>
+<h3 id="安装-memcached-的-PHP-扩展"><a href="#安装-memcached-的-PHP-扩展" class="headerlink" title="安装 memcached 的 PHP 扩展"></a>安装 memcached 的 PHP 扩展</h3><ul>
+<li>安装 <a href="http://pecl.php.net/package/memcached" target="_blank" rel="noopener">memcached-2.2.0</a>，需要 libmemcached library</li>
+<li>安装 libmemcached-1.0.18</li>
+</ul>
+<p>安装 libmemcached 时，Mac OS 会出现错误，需要手动修改部分源码，详见：<a href="http://stackoverflow.com/questions/27004144/how-can-i-install-libmemcached-for-mac-os-x-yosemite-10-10-in-order-to-install-t" target="_blank" rel="noopener">How can I install libmemcached for Mac OS X Yosemite 10.10 in order to install the memcached.so PHP extension on Mamp 3?</a></p>
+<p>PHP7 无法使用 php-memcached 扩展的 master 分支进行编译安装，需要切换到 php7 分支，具体如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone -b php7 https://github.com/php-memcached-dev/php-memcached.git</span><br></pre></td></tr></table></figure>
+<p>然后，php.ini 中增加 <code>extension=memcached.so</code>；启动 memcached 服务端：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/memcached/bin/memcached -d -m 256 -u nobody -l 127.0.0.1 -P /var/run/memcached.pid</span><br></pre></td></tr></table></figure>
+<p>至此，搭配完成，终于可以愉快地食用了~</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        生活不止诗和远方，还有眼前的苟且。
+        
+    </div>
+    <footer>
+        <a href="http://veleven.tk">
+            <img src="/static/img/avatar.jpg" alt="Veleven">
+            Veleven
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/&title=《Mac 下，PHP 与 memcache 的搭配食用》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/&title=《Mac 下，PHP 与 memcache 的搭配食用》 — MOV vx, 0x0b&source=昨日，朋友遇到一个问题，需要在 Mac 下安装 memcache 服务，并与 PHP 搭配食用。一开始还以为很简单，只要按照流程安装就好了。不曾想，全是坑..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac 下，PHP 与 memcache 的搭配食用》 — MOV vx, 0x0b&url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/27/understanding-of-programming/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">对编程以及 C 语言的一些理解</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>MOV vx, 0x0b &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://wpa.qq.com/msgrd?v=3&uin=1878957669&site=qq&menu=yes" target="_blank">Veleven</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/&title=《Mac 下，PHP 与 memcache 的搭配食用》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/&title=《Mac 下，PHP 与 memcache 的搭配食用》 — MOV vx, 0x0b&source=昨日，朋友遇到一个问题，需要在 Mac 下安装 memcache 服务，并与 PHP 搭配食用。一开始还以为很简单，只要按照流程安装就好了。不曾想，全是坑..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mac 下，PHP 与 memcache 的搭配食用》 — MOV vx, 0x0b&url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://veleven.tk/2019/05/21/php-and-memcache-in-mac/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.10" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'o(TヘTo) 你快回来!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(｡･∀･)ﾉﾞ 咦,回来咯!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

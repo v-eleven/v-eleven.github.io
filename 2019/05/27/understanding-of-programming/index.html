@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>对编程以及 C 语言的一些理解 | MOV vx, 0x0b | 生活不止诗和远方，还有眼前的苟且</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#512DA8">
+    
+    
+    <meta name="keywords" content="编程,C 语言">
+    <meta name="description" content="前些天，在群里看到一个群友，想要仿写一个整人的小程序，看的网上的教程是 VBS 脚本。看了看，感觉还挺好玩的。只是用 VBS 来写还是太随意了一些，代码都能看得到（.vbs 格式的文件，右键选择用记事本打开）。突发奇想，要不用 C 语言写一个出来玩玩？大致看了一下这个 VBS 脚本的代码，理解了这个整人小程序的大致流程（这个程序大概做了些什么），然后就开始动手撸代码啦。 部分代码如下：">
+<meta name="keywords" content="编程,C 语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对编程以及 C 语言的一些理解">
+<meta property="og:url" content="http://veleven.tk/2019/05/27/understanding-of-programming/index.html">
+<meta property="og:site_name" content="MOV vx, 0x0b">
+<meta property="og:description" content="前些天，在群里看到一个群友，想要仿写一个整人的小程序，看的网上的教程是 VBS 脚本。看了看，感觉还挺好玩的。只是用 VBS 来写还是太随意了一些，代码都能看得到（.vbs 格式的文件，右键选择用记事本打开）。突发奇想，要不用 C 语言写一个出来玩玩？大致看了一下这个 VBS 脚本的代码，理解了这个整人小程序的大致流程（这个程序大概做了些什么），然后就开始动手撸代码啦。 部分代码如下：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-27T09:10:25.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对编程以及 C 语言的一些理解">
+<meta name="twitter:description" content="前些天，在群里看到一个群友，想要仿写一个整人的小程序，看的网上的教程是 VBS 脚本。看了看，感觉还挺好玩的。只是用 VBS 来写还是太随意了一些，代码都能看得到（.vbs 格式的文件，右键选择用记事本打开）。突发奇想，要不用 C 语言写一个出来玩玩？大致看了一下这个 VBS 脚本的代码，理解了这个整人小程序的大致流程（这个程序大概做了些什么），然后就开始动手撸代码啦。 部分代码如下：">
+    
+        <link rel="alternate" type="application/atom+xml" title="MOV vx, 0x0b" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/static/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/static/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Veleven</h5>
+          <a href="mailto:1878957669@qq.com" title="1878957669@qq.com" class="mail">1878957669@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://google.veleven.tk" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google 镜像
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.0x08.org/docs/hacker-howto.html#hacker-howto" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                如何成为黑客
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">对编程以及 C 语言的一些理解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">对编程以及 C 语言的一些理解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-26T16:34:22.000Z" itemprop="datePublished" class="page-time">
+  2019-05-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量、常量和数据类型"><span class="post-toc-number">1.</span> <span class="post-toc-text">变量、常量和数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择结构"><span class="post-toc-number">2.</span> <span class="post-toc-text">选择结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环结构"><span class="post-toc-number">3.</span> <span class="post-toc-text">循环结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-number">4.</span> <span class="post-toc-text">小结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-understanding-of-programming"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">对编程以及 C 语言的一些理解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-27 00:34:22" datetime="2019-05-26T16:34:22.000Z"  itemprop="datePublished">2019-05-27</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>前些天，在群里看到一个群友，想要仿写一个整人的小程序，看的网上的教程是 VBS 脚本。看了看，感觉还挺好玩的。只是用 VBS 来写还是太随意了一些，代码都能看得到（.vbs 格式的文件，右键选择用记事本打开）。突发奇想，要不用 C 语言写一个出来玩玩？大致看了一下这个 VBS 脚本的代码，理解了这个整人小程序的大致流程（这个程序大概做了些什么），然后就开始动手撸代码啦。</p>
+<p>部分代码如下：</p>
+<a id="more"></a>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> result = IDNO;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳出一个确认弹框，如果不点击“是”，就一直弹出这个框</span></span><br><span class="line"><span class="keyword">while</span> (result != IDYES) &#123;</span><br><span class="line">    <span class="comment">// 记录弹框弹出的次数</span></span><br><span class="line">    count++;</span><br><span class="line">    result = MessageBox(<span class="literal">NULL</span>, <span class="string">"你是猪嘛？"</span>, <span class="string">"要老实回答问题哦："</span>, MB_YESNO);</span><br><span class="line">    <span class="keyword">if</span> (count == <span class="number">3</span>) &#123;</span><br><span class="line">        MessageBox(<span class="literal">NULL</span>, <span class="string">"哎哟，说谎的孩子可不是好孩子哦。你还有三次机会哦，否则，后果自负哦～"</span>, <span class="string">"哈哈哈哈哈哈哈："</span>, <span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果弹框弹出了6次及以上，就直接强制关机</span></span><br><span class="line">    <span class="keyword">if</span> (count &gt;= <span class="number">6</span>) &#123;</span><br><span class="line">        system(<span class="string">"shutdown -s -t 0"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>C 语言入门其实并不难，大多数人应该是从来没有接触过编程，没有一种编程思维，潜意识里觉得它很难。其实只要慢慢习惯它，养成一种编程的思维就好多了。下面的内容，是我对编程基础部分的一些理解。</p>
+<h3 id="变量、常量和数据类型"><a href="#变量、常量和数据类型" class="headerlink" title="变量、常量和数据类型"></a>变量、常量和数据类型</h3><p>变量就好比一个开着的盒子，盒子是固定的，但是里面的东西可以换。常量呢，就像是一个封闭的盒子，里面一旦放了东西，就不能换了。</p>
+<p>数据类型可以看作是，盒子里面放的东西具体是哪一种类型的东西，比如这个盒子只能放玩具，那个盒子只能放零食。</p>
+<p>不同数据类型的变量，可以对它进行不同的操作。比如，可以把放玩具的盒子里的东西拿出来玩，把放零食的盒子里的东西拿出来吃。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此处定义了一个变量，名字叫做 count，属于 int 类型，默认给它一个值，为 0</span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 此处对变量 count 进行加法操作，对原来的 count 加上 3，然后再把计算得出的结果重新放回到 count 变量中</span></span><br><span class="line">count = count + <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><p>选择结构其实很好理解，就是一句话：如果这样，怎么办；如果那样，怎么做。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果 count 等于 3，显示一句话：“count等于3”，反之，显示一句话：“count不等于3”</span></span><br><span class="line"><span class="keyword">if</span> (count == <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count等于3"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count不等于3"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般在做选择的时候，都会有一些条件来判断到底怎么做选择。比如：</p>
+<ul>
+<li><code>a == b</code> (a等于b)</li>
+<li><code>a &gt; b</code> (a大于b)</li>
+<li><code>a &lt; b</code> (a小于b)</li>
+<li><code>a != b</code> (a不等于b)</li>
+<li><code>a &gt;= b</code> (a大于或等于b)</li>
+<li>…</li>
+</ul>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><p>有些时候，一些相同的事情，是不是不想反复地去做？对于一些一样的操作，其实可以通过循环去做。比如你想让上面的 <code>count</code> 加 3，加 100 次，怎么办。如果是写 100 句 <code>count = count + 3;</code>，那就太累太麻烦了。其实，完全可以这么做：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="comment">// for 循环</span></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    count = count + <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// while 循环</span></span><br><span class="line"><span class="keyword">while</span> (j &lt; <span class="number">100</span>) &#123;</span><br><span class="line">    count = count + <span class="number">3</span>;</span><br><span class="line">    j++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是瞬间感觉，原来这么简单？对，就这么几句话，就搞定了。原理其实很简单，当条件没有达到的时候，就一直做，直到条件达到了为止。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>编程其实挺好玩的，如果你能 <strong>静下心</strong> 来玩它的话。基础很重要，这些基本的东西如果理解了，后面学习起来就好多了。加油吧～</p>
+<p>PS：才发现写教程原来这么慢，这么难。有些句子，想了好久，又改了好几次，总想写的通俗易懂。内容其实并不多，但还是花了两个多小时。原创不易，且看且珍惜。哈哈哈哈哈哈。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        生活不止诗和远方，还有眼前的苟且。
+        
+    </div>
+    <footer>
+        <a href="http://veleven.tk">
+            <img src="/static/img/avatar.jpg" alt="Veleven">
+            Veleven
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-语言/">C 语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程/">编程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/05/27/understanding-of-programming/&title=《对编程以及 C 语言的一些理解》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/05/27/understanding-of-programming/&title=《对编程以及 C 语言的一些理解》 — MOV vx, 0x0b&source=前些天，在群里看到一个群友，想要仿写一个整人的小程序，看的网上的教程是 VBS 脚本。看了看，感觉还挺好玩的。只是用 VBS 来写还是太随意了一些，代码都..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/05/27/understanding-of-programming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《对编程以及 C 语言的一些理解》 — MOV vx, 0x0b&url=http://veleven.tk/2019/05/27/understanding-of-programming/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/05/27/understanding-of-programming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/17/learning-thinking/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">一种学习思路</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/21/php-and-memcache-in-mac/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Mac 下，PHP 与 memcache 的搭配食用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>MOV vx, 0x0b &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://wpa.qq.com/msgrd?v=3&uin=1878957669&site=qq&menu=yes" target="_blank">Veleven</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/05/27/understanding-of-programming/&title=《对编程以及 C 语言的一些理解》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/05/27/understanding-of-programming/&title=《对编程以及 C 语言的一些理解》 — MOV vx, 0x0b&source=前些天，在群里看到一个群友，想要仿写一个整人的小程序，看的网上的教程是 VBS 脚本。看了看，感觉还挺好玩的。只是用 VBS 来写还是太随意了一些，代码都..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/05/27/understanding-of-programming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《对编程以及 C 语言的一些理解》 — MOV vx, 0x0b&url=http://veleven.tk/2019/05/27/understanding-of-programming/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/05/27/understanding-of-programming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://veleven.tk/2019/05/27/understanding-of-programming/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.10" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'o(TヘTo) 你快回来!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(｡･∀･)ﾉﾞ 咦,回来咯!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

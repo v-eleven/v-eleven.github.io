@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>PHP 快速入门 | MOV vx, 0x0b | 生活不止诗和远方，还有眼前的苟且</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#512DA8">
+    
+    
+    <meta name="keywords" content="PHP,编程">
+    <meta name="description" content="啥是 PHP？这里就不细说了，网上搜索一下就知道了。简单来说，PHP 其实就是一种脚本编程语言，可以用它来做很多事情，不过目前主要还是用来写写网站。跟 C 语言、Java 等相比，它很简单，很容易上手。你不信？继续往下看就知道了。">
+<meta name="keywords" content="PHP,编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 快速入门">
+<meta property="og:url" content="http://veleven.tk/2020/01/10/simple-php-guide/index.html">
+<meta property="og:site_name" content="MOV vx, 0x0b">
+<meta property="og:description" content="啥是 PHP？这里就不细说了，网上搜索一下就知道了。简单来说，PHP 其实就是一种脚本编程语言，可以用它来做很多事情，不过目前主要还是用来写写网站。跟 C 语言、Java 等相比，它很简单，很容易上手。你不信？继续往下看就知道了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://veleven.tk/static/post/simple_php_guide/01.png">
+<meta property="og:image" content="http://veleven.tk/static/post/simple_php_guide/02.png">
+<meta property="og:image" content="http://veleven.tk/static/post/simple_php_guide/03.png">
+<meta property="og:updated_time" content="2020-03-30T08:06:03.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 快速入门">
+<meta name="twitter:description" content="啥是 PHP？这里就不细说了，网上搜索一下就知道了。简单来说，PHP 其实就是一种脚本编程语言，可以用它来做很多事情，不过目前主要还是用来写写网站。跟 C 语言、Java 等相比，它很简单，很容易上手。你不信？继续往下看就知道了。">
+<meta name="twitter:image" content="http://veleven.tk/static/post/simple_php_guide/01.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="MOV vx, 0x0b" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/static/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/static/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Veleven</h5>
+          <a href="mailto:1878957669@qq.com" title="1878957669@qq.com" class="mail">1878957669@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://google.veleven.tk" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google 镜像
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.0x08.org/docs/hacker-howto.html#hacker-howto" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                如何成为黑客
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHP 快速入门</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHP 快速入门</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-10T12:33:01.000Z" itemprop="datePublished" class="page-time">
+  2020-01-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-simple-php-guide"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHP 快速入门</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-10 20:33:01" datetime="2020-01-10T12:33:01.000Z"  itemprop="datePublished">2020-01-10</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>啥是 <code>PHP</code>？这里就不细说了，网上搜索一下就知道了。简单来说，<code>PHP</code> 其实就是一种脚本编程语言，可以用它来做很多事情，不过目前主要还是用来写写网站。跟 <code>C 语言</code>、<code>Java</code> 等相比，它很简单，很容易上手。你不信？继续往下看就知道了。</p>
+<a id="more"></a>
+<p>想在屏幕上显示一行“你好”？</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"你好\n"</span>;</span><br></pre></td></tr></table></figure>
+<p>对，就是这么简单，一行代码即可。不像 <code>Java</code>，需要写上一堆代码才能实现同样的功能。<code>PHP</code> 是解释型的编程语言，所以需要配合“PHP 解释器”来执行我们已经写好的代码。废话不多说，我们先来下载一个“PHP 解释器”吧。大多数人应该在使用 Windows 系统，所以我们直接去官网下载 Windows 版，下载完成后解压即可。下载地址是：<a href="https://windows.php.net/downloads/releases/php-7.2.26-nts-Win32-VC15-x64.zip" target="_blank" rel="noopener">https://windows.php.net/downloads/releases/php-7.2.26-nts-Win32-VC15-x64.zip</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/static/post/simple_php_guide/01.png" alt="PHP 解释器目录结构" title>
+                </div>
+                <div class="image-caption">PHP 解释器目录结构</div>
+            </figure>
+<p>什么？不需要下载 <code>MySQL</code> 数据库、<code>Nginx</code> 服务器和 <code>Apache</code> 服务器的吗？是的，全都不需要。入门只需要一个“PHP 解释器”就足够了，没必要搞得那么复杂。并且，“PHP 解释器”内置了一个 Web 服务器哦。我们来试试吧，先在 F 盘新建一个文件命名为 <code>index.php</code>，用记事本（推荐使用 <code>Visual Studio Code</code> 编辑器）打开就行，然后填入上面的那两行代码（注：<code>&lt;?php</code> 是固定内容，用来标记这是 <code>PHP</code> 代码）并保存。接着，在 F 盘（需要提供 Web 服务的目录）中执行 CMD 命令 <code>F:\php-7.2.26\php.exe -S 0.0.0.0:80</code>（我的解释器解压在 F 盘中，具体路径还以实际为主），最后打开浏览器访问 <code>http://127.0.0.1</code> 看看效果？</p>
+<p>学习编程语言，其实也是有套路的，因为不管哪种语言，都逃不过这些东西：变量、常量、数据类型、选择结构、循环结构、函数。好，到此为止，有这些就足够了，学会这些就可以写一个完整的程序了。留言板大家应该都不陌生了吧，待会儿我们就可以手写一个留言板网站了，咱先看看效果吧。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/static/post/simple_php_guide/02.png" alt="没有任何留言" title>
+                </div>
+                <div class="image-caption">没有任何留言</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/static/post/simple_php_guide/03.png" alt="提交留言内容" title>
+                </div>
+                <div class="image-caption">提交留言内容</div>
+            </figure>
+<p>虽然丑，但是，这不是重点！这不是重点！这不是重点！这样的一个留言板网站，所有代码加起来只有 100 行左右！并且！<code>PHP</code> 代码只有<strong>十几行</strong>！其他的都是 <code>HTML,CSS</code> 代码了。是的，就是这么简单。至于好不好看，那就是 <code>HTML,CSS</code> 的事情了，也不是这篇文章的重点。好了，不说废话，这十几行<strong>核心代码</strong>直接放出来！（文章底部会有<strong>详细讲解</strong>哦，不懂的话还可以问我哦）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'DATA_FILE_PATH'</span>, <span class="keyword">__DIR__</span> . <span class="string">'/data.txt'</span>);</span><br><span class="line"></span><br><span class="line">date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);</span><br><span class="line"></span><br><span class="line">$data = file_exists(DATA_FILE_PATH) ? file_get_contents(DATA_FILE_PATH) : <span class="string">'[]'</span>;</span><br><span class="line">$data = json_decode($data, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">$postName = $_POST[<span class="string">'name'</span>] ?? <span class="string">''</span>;</span><br><span class="line">$postContent = $_POST[<span class="string">'content'</span>] ?? <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($postName) &amp;&amp; !<span class="keyword">empty</span>($postContent)) &#123;</span><br><span class="line">    array_unshift($data, [<span class="string">'n'</span> =&gt; $postName, <span class="string">'c'</span> =&gt; $postContent, <span class="string">'t'</span> =&gt; time(), <span class="string">'rgb'</span> =&gt; [rand(<span class="number">0</span>, <span class="number">255</span>), rand(<span class="number">0</span>, <span class="number">255</span>), rand(<span class="number">0</span>, <span class="number">255</span>)]]);</span><br><span class="line">    file_put_contents(DATA_FILE_PATH, json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一脸懵逼？还是，内心里大喊了一声：这也太简单了吧！不急不急，咱们再简单地聊聊 <code>PHP</code> 知识吧。</p>
+<p><code>PHP</code> 的变量很有个性，必须要用 <code>$</code> 开头；常量可以用内置函数 <code>define()</code> 来定义，常量就不需要加 <code>$</code> 了，建议使用全大写字母来表示常量，这是一种良好的编程习惯。顾名思义了，变量的值可以随时改变，常量的值一旦定义后就不能改变了。可以思考一下，什么情况下使用变量，什么情况下使用常量。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里定义了一个字符串变量</span></span><br><span class="line">$name = <span class="string">'veleven'</span>;</span><br><span class="line"><span class="comment">// 这里定义了一个常量</span></span><br><span class="line">define(<span class="string">'PI'</span>, <span class="number">3.14</span>);</span><br></pre></td></tr></table></figure>
+<p>数据类型无非“数值、字符串、布尔、数组”，目前知道这些就足够了。数值也可以理解为数字；字符串多数情况下建议使用单引号就行了；布尔其实就是真假判断；数组就好玩了，它可以将数值、字符串、布尔、数组放在一起作为一个整体，用 <code>[]</code> 包裹起来就行了，并且数组里的元素可以用下标的方式取出来，数组的下标默认是从 <code>0</code> 开始且依次递增。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数值</span></span><br><span class="line">$number1 = <span class="number">-1</span>;</span><br><span class="line">$number2 = <span class="number">1</span>;</span><br><span class="line">$number3 = <span class="number">3.14</span>;</span><br><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">$string = <span class="string">'veleven'</span>;</span><br><span class="line"><span class="comment">// 布尔</span></span><br><span class="line">$bool1 = <span class="keyword">true</span>;</span><br><span class="line">$bool2 = <span class="keyword">false</span>;</span><br><span class="line"><span class="comment">// 数组，$array[2] 的值就是 true</span></span><br><span class="line">$array = [<span class="number">0</span>, <span class="string">'veleven'</span>, <span class="keyword">true</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]];</span><br></pre></td></tr></table></figure>
+<p>关于选择结构、循环结构、函数等等，我就不再细说了，推荐去“<a href="https://www.runoob.com/php/php-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>”继续学习，特别适合入门，没有收广告费！以上，算是抛砖引玉吧，只是我个人对 <code>PHP</code> 和编程的一些理解，网上的一些教程肯定讲的比我更专业。</p>
+<p>接下来，就讲讲留言板的核心代码了！留言板的功能其实很简单，用户提交“姓名”和“留言内容”给 <code>PHP</code>，<code>PHP</code> 将这些内容整理一下，然后整齐地放入所有留言内容中就可以了。显示的时候，<code>PHP</code> 将所有留言内容取出来，然后一个一个整齐划一地显示出来就行了。与 <code>PHP</code> 代码相关的内容，都写在注释里了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 定义留言数据文件路径常量，留言内容都存储在这个文件里</span></span><br><span class="line"><span class="comment">// __DIR__ 是 PHP 内置常量，代表当前文件的路径</span></span><br><span class="line">define(<span class="string">'DATA_FILE_PATH'</span>, <span class="keyword">__DIR__</span> . <span class="string">'/data.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跟 PHP 说我们的时区是什么</span></span><br><span class="line">date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从数据文件中取出所有数据（是一个留言数据数组）</span></span><br><span class="line">$data = file_exists(DATA_FILE_PATH) ? file_get_contents(DATA_FILE_PATH) : <span class="string">'[]'</span>;</span><br><span class="line">$data = json_decode($data, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让 PHP 接收用户提交的留言数据，姓名和留言内容</span></span><br><span class="line">$postName = $_POST[<span class="string">'name'</span>] ?? <span class="string">''</span>;</span><br><span class="line">$postContent = $_POST[<span class="string">'content'</span>] ?? <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果留言数据存在的话，就把它放到所有留言数据中，并存储至数据文件中</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($postName) &amp;&amp; !<span class="keyword">empty</span>($postContent)) &#123;</span><br><span class="line">    array_unshift($data, [<span class="string">'n'</span> =&gt; $postName, <span class="string">'c'</span> =&gt; $postContent, <span class="string">'t'</span> =&gt; time(), <span class="string">'rgb'</span> =&gt; [rand(<span class="number">0</span>, <span class="number">255</span>), rand(<span class="number">0</span>, <span class="number">255</span>), rand(<span class="number">0</span>, <span class="number">255</span>)]]);</span><br><span class="line">    file_put_contents(DATA_FILE_PATH, json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于 <code>PHP</code> 的学习资料，首推<a href="https://www.php.net/manual/zh" target="_blank" rel="noopener">官网手册</a>！不管你是刚入门还是进阶，都是最佳的学习资料。这里分享一个<strong>小技巧</strong>：注意到官网手册右上角的搜索框了吗？不知道诸如 <code>json_decode()</code> 这些内置函数是干啥的？搜索一下，你就知道了。这个小技巧，我到现在还在用哦。</p>
+<p>以上列出的只是 <code>PHP</code> 的冰山一角，编程这个领域涉及的知识实在是太多了，学无止境。我也希望能和大家一起学习，一起探讨。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        生活不止诗和远方，还有眼前的苟且。
+        
+    </div>
+    <footer>
+        <a href="http://veleven.tk">
+            <img src="/static/img/avatar.jpg" alt="Veleven">
+            Veleven
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程/">编程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2020/01/10/simple-php-guide/&title=《PHP 快速入门》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2020/01/10/simple-php-guide/&title=《PHP 快速入门》 — MOV vx, 0x0b&source=啥是 PHP？这里就不细说了，网上搜索一下就知道了。简单来说，PHP 其实就是一种脚本编程语言，可以用它来做很多事情，不过目前主要还是用来写写网站。跟 C..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2020/01/10/simple-php-guide/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP 快速入门》 — MOV vx, 0x0b&url=http://veleven.tk/2020/01/10/simple-php-guide/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2020/01/10/simple-php-guide/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/25/talk-programming/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">编程杂谈</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>MOV vx, 0x0b &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://wpa.qq.com/msgrd?v=3&uin=1878957669&site=qq&menu=yes" target="_blank">Veleven</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2020/01/10/simple-php-guide/&title=《PHP 快速入门》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2020/01/10/simple-php-guide/&title=《PHP 快速入门》 — MOV vx, 0x0b&source=啥是 PHP？这里就不细说了，网上搜索一下就知道了。简单来说，PHP 其实就是一种脚本编程语言，可以用它来做很多事情，不过目前主要还是用来写写网站。跟 C..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2020/01/10/simple-php-guide/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP 快速入门》 — MOV vx, 0x0b&url=http://veleven.tk/2020/01/10/simple-php-guide/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2020/01/10/simple-php-guide/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://veleven.tk/2020/01/10/simple-php-guide/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.10" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'o(TヘTo) 你快回来!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(｡･∀･)ﾉﾞ 咦,回来咯!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

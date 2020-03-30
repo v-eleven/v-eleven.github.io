@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>利用 TTS 来写点好玩的东西吧 | MOV vx, 0x0b | 生活不止诗和远方，还有眼前的苟且</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#512DA8">
+    
+    
+    <meta name="keywords" content="编程">
+    <meta name="description" content="在 有哪些命令行的软件堪称神器？ 中偶然发现了一个好玩的东西： 1for i in `say -v &apos;?&apos; | cut -d &apos; &apos; -f 1`; do echo $i &amp;amp;&amp;amp; say -v &quot;$i&quot; &apos;Hello World&apos;;done 出于天生的好奇，找朋友在 Mac 下尝试了一番，就这么发现了新世界，玩起来玩起来：">
+<meta name="keywords" content="编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 TTS 来写点好玩的东西吧">
+<meta property="og:url" content="http://veleven.tk/2019/07/09/play-with-tts/index.html">
+<meta property="og:site_name" content="MOV vx, 0x0b">
+<meta property="og:description" content="在 有哪些命令行的软件堪称神器？ 中偶然发现了一个好玩的东西： 1for i in `say -v &apos;?&apos; | cut -d &apos; &apos; -f 1`; do echo $i &amp;amp;&amp;amp; say -v &quot;$i&quot; &apos;Hello World&apos;;done 出于天生的好奇，找朋友在 Mac 下尝试了一番，就这么发现了新世界，玩起来玩起来：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-27T09:10:25.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 TTS 来写点好玩的东西吧">
+<meta name="twitter:description" content="在 有哪些命令行的软件堪称神器？ 中偶然发现了一个好玩的东西： 1for i in `say -v &apos;?&apos; | cut -d &apos; &apos; -f 1`; do echo $i &amp;amp;&amp;amp; say -v &quot;$i&quot; &apos;Hello World&apos;;done 出于天生的好奇，找朋友在 Mac 下尝试了一番，就这么发现了新世界，玩起来玩起来：">
+    
+        <link rel="alternate" type="application/atom+xml" title="MOV vx, 0x0b" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/static/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/static/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Veleven</h5>
+          <a href="mailto:1878957669@qq.com" title="1878957669@qq.com" class="mail">1878957669@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://google.veleven.tk" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google 镜像
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.0x08.org/docs/hacker-howto.html#hacker-howto" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                如何成为黑客
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">利用 TTS 来写点好玩的东西吧</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">利用 TTS 来写点好玩的东西吧</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-09T15:30:58.000Z" itemprop="datePublished" class="page-time">
+  2019-07-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mac-中的-TTS-服务"><span class="post-toc-number">1.</span> <span class="post-toc-text">Mac 中的 TTS 服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Linux-中的-TTS-服务"><span class="post-toc-number">2.</span> <span class="post-toc-text">Linux 中的 TTS 服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开始写一个好玩的东西吧"><span class="post-toc-number">3.</span> <span class="post-toc-text">开始写一个好玩的东西吧</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-play-with-tts"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">利用 TTS 来写点好玩的东西吧</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-09 23:30:58" datetime="2019-07-09T15:30:58.000Z"  itemprop="datePublished">2019-07-09</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>在 <a href="https://www.zhihu.com/question/59227720" target="_blank" rel="noopener">有哪些命令行的软件堪称神器？</a> 中偶然发现了一个好玩的东西：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for i in `say -v '?' | cut -d ' ' -f 1`; do echo $i &amp;&amp; say -v "$i" 'Hello World';done</span><br></pre></td></tr></table></figure>
+<p>出于天生的好奇，找朋友在 Mac 下尝试了一番，就这么发现了新世界，玩起来玩起来：</p>
+<a id="more"></a>
+<h3 id="Mac-中的-TTS-服务"><a href="#Mac-中的-TTS-服务" class="headerlink" title="Mac 中的 TTS 服务"></a>Mac 中的 TTS 服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 迅速查看了 say 命令的帮助文档</span></span><br><span class="line">man say</span><br><span class="line">say -v Ting-Ting "哇！Veleven 真帅啊！"</span><br></pre></td></tr></table></figure>
+<p>随着命令的运行，我陶醉在“婷婷”的夸赞声里～</p>
+<blockquote>
+<p>语音合成是将人类语音用人工的方式所产生。若是将电脑系统用在语音合成上，则称为语音合成器，而语音合成器可以用软/硬件所实现。文字转语音（text-to-speech，TTS）系统则是将一般语言的文字转换为语音，其他的系统可以描绘语言符号的表示方式，就像音标转换至语音一样。 —— 维基百科</p>
+</blockquote>
+<h3 id="Linux-中的-TTS-服务"><a href="#Linux-中的-TTS-服务" class="headerlink" title="Linux 中的 TTS 服务"></a>Linux 中的 TTS 服务</h3><p>Mac 下竟然有这么好玩的东西，我大 Linux 表示不服！自然通过 Google 搜索一番啦。找到了这几个：<code>espeak</code>, <code>spd-say</code>, <code>say</code>。依次食用，发现还是 <code>spd-say</code> 相对更好用一些。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spd-say -l zh "你好哇"</span><br></pre></td></tr></table></figure>
+<p>声音不如Mac上的好听，机械感很强，在这一点上，表示对 Linux 有点失望啊。就不能增加一些好听的语音库嘛。系统内置的语言库已经不能满足我了，突然想到了在线语音合成。哈哈哈，继续 Google。这次竟然找到了 Google 自家的产品了，Google 翻译提供的语音合成 API：<code>https://translate.google.com/translate_tts</code></p>
+<h3 id="开始写一个好玩的东西吧"><a href="#开始写一个好玩的东西吧" class="headerlink" title="开始写一个好玩的东西吧"></a>开始写一个好玩的东西吧</h3><p>有了语音合成这么好玩的东西，肯定要写点什么东西才有趣。语音合成，语音合成，那就来个准点报时？或者天气预报也可以啊。不多说，就是干！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$weatherData = file_get_contents(<span class="string">'http://api.jirengu.com/weather.php'</span>);</span><br><span class="line">$weatherData = json_decode($weatherData, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">$weatherData = $weatherData[<span class="string">'results'</span>][<span class="number">0</span>];</span><br><span class="line">$weatherString = sprintf(<span class="string">'%s，%s，%s。'</span>, $weatherData[<span class="string">'currentCity'</span>], $weatherData[<span class="string">'weather_data'</span>][<span class="number">0</span>][<span class="string">'date'</span>], $weatherData[<span class="string">'weather_data'</span>][<span class="number">0</span>][<span class="string">'weather'</span>]);</span><br><span class="line">$timeString = date(<span class="string">'Y-m-d H:i:s'</span>);</span><br><span class="line">$content = <span class="string">"准点播报啦！当前时间：&#123;$timeString&#125;。当前天气情况：&#123;$weatherString&#125;"</span>;</span><br><span class="line"></span><br><span class="line">$ttsUrl = <span class="string">'http://translate.google.cn/translate_tts?ie=UTF-8&amp;tl=cmn-Hans-CN&amp;client=tw-ob&amp;q='</span> . urlencode($content);</span><br><span class="line">system(sprintf(<span class="string">'mplayer "%s"'</span>, $ttsUrl));</span><br></pre></td></tr></table></figure>
+<p>找到了一个天气 API，然后获取当前的天气信息，跟当前时间一起拼接成待语言合成的字符串，调用语言合成 API 进行语言合成，最后通过 <code>mplayer</code> 输出音频。将该脚本置入 <code>crontab</code> 中，使其每小时运行一次，一个定时播报时间和天气的小程序就完成啦～</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        生活不止诗和远方，还有眼前的苟且。
+        
+    </div>
+    <footer>
+        <a href="http://veleven.tk">
+            <img src="/static/img/avatar.jpg" alt="Veleven">
+            Veleven
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程/">编程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/07/09/play-with-tts/&title=《利用 TTS 来写点好玩的东西吧》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/07/09/play-with-tts/&title=《利用 TTS 来写点好玩的东西吧》 — MOV vx, 0x0b&source=在 有哪些命令行的软件堪称神器？ 中偶然发现了一个好玩的东西：
+1for i in `say -v '?' | cut -d ' ' -f 1`; do ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/07/09/play-with-tts/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用 TTS 来写点好玩的东西吧》 — MOV vx, 0x0b&url=http://veleven.tk/2019/07/09/play-with-tts/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/07/09/play-with-tts/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/25/talk-programming/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">编程杂谈</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/17/learning-thinking/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">一种学习思路</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>MOV vx, 0x0b &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://wpa.qq.com/msgrd?v=3&uin=1878957669&site=qq&menu=yes" target="_blank">Veleven</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/07/09/play-with-tts/&title=《利用 TTS 来写点好玩的东西吧》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/07/09/play-with-tts/&title=《利用 TTS 来写点好玩的东西吧》 — MOV vx, 0x0b&source=在 有哪些命令行的软件堪称神器？ 中偶然发现了一个好玩的东西：
+1for i in `say -v '?' | cut -d ' ' -f 1`; do ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/07/09/play-with-tts/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用 TTS 来写点好玩的东西吧》 — MOV vx, 0x0b&url=http://veleven.tk/2019/07/09/play-with-tts/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/07/09/play-with-tts/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://veleven.tk/2019/07/09/play-with-tts/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.10" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'o(TヘTo) 你快回来!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(｡･∀･)ﾉﾞ 咦,回来咯!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

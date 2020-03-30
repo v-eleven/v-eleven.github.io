@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>编程杂谈 | MOV vx, 0x0b | 生活不止诗和远方，还有眼前的苟且</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#512DA8">
+    
+    
+    <meta name="keywords" content="编程">
+    <meta name="description" content="编程语言的选择，历来就是圈子里的一个热门话题。随便说一句话，就能引发战争。  PHP 是世界上最好的语言 人生苦短，快学 Python 吧 Java 大法好 … …  这些，我们还是看看就好。编程语言，本质就是一种工具而已。它能写出我们想要的东西来，对于我们来说，它就是最好的编程语言。">
+<meta name="keywords" content="编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程杂谈">
+<meta property="og:url" content="http://veleven.tk/2019/07/25/talk-programming/index.html">
+<meta property="og:site_name" content="MOV vx, 0x0b">
+<meta property="og:description" content="编程语言的选择，历来就是圈子里的一个热门话题。随便说一句话，就能引发战争。  PHP 是世界上最好的语言 人生苦短，快学 Python 吧 Java 大法好 … …  这些，我们还是看看就好。编程语言，本质就是一种工具而已。它能写出我们想要的东西来，对于我们来说，它就是最好的编程语言。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-27T09:10:25.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编程杂谈">
+<meta name="twitter:description" content="编程语言的选择，历来就是圈子里的一个热门话题。随便说一句话，就能引发战争。  PHP 是世界上最好的语言 人生苦短，快学 Python 吧 Java 大法好 … …  这些，我们还是看看就好。编程语言，本质就是一种工具而已。它能写出我们想要的东西来，对于我们来说，它就是最好的编程语言。">
+    
+        <link rel="alternate" type="application/atom+xml" title="MOV vx, 0x0b" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.10">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/static/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/static/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Veleven</h5>
+          <a href="mailto:1878957669@qq.com" title="1878957669@qq.com" class="mail">1878957669@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://google.veleven.tk" target="_blank" >
+                <i class="icon icon-lg icon-google"></i>
+                Google 镜像
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.0x08.org/docs/hacker-howto.html#hacker-howto" target="_blank" >
+                <i class="icon icon-lg icon-book"></i>
+                如何成为黑客
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">编程杂谈</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">编程杂谈</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-25T08:12:09.000Z" itemprop="datePublished" class="page-time">
+  2019-07-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于学习"><span class="post-toc-number">1.</span> <span class="post-toc-text">关于学习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最后"><span class="post-toc-number">2.</span> <span class="post-toc-text">最后</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-talk-programming"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">编程杂谈</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-25 16:12:09" datetime="2019-07-25T08:12:09.000Z"  itemprop="datePublished">2019-07-25</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>编程语言的选择，历来就是圈子里的一个热门话题。随便说一句话，就能引发战争。</p>
+<ul>
+<li>PHP 是世界上最好的语言</li>
+<li>人生苦短，快学 Python 吧</li>
+<li>Java 大法好</li>
+<li>… …</li>
+</ul>
+<p>这些，我们还是看看就好。编程语言，本质就是一种工具而已。它能写出我们想要的东西来，对于我们来说，它就是最好的编程语言。</p>
+<a id="more"></a>
+<blockquote>
+<p>甭管黑猫白猫，能抓住老鼠的就是好猫。</p>
+</blockquote>
+<p>所以，知道自己想做什么是最重要的，这样就能针对性的去选择适合自己的编程语言，而不是人云亦云。</p>
+<p>据我目前了解，各个语言所擅长的方向如下：<strong>C 语言</strong> 比较适合写偏底层的程序，如操作系统、硬件驱动程序、系统软件等等，PHP 这个语言就是用 C 语言写出来的；<strong>C++</strong> 比较适合写大型的桌面应用程序，许多电脑上的大型游戏就是 C++ 写出来的；<strong>Java</strong> 目前主要分为三个方向，可以写 Web 后端如 jsp，可以写服务器后端如大数据处理等等，可以写 Android，当然也可以写桌面应用程序，“我的世界”就是 Java 写的，不过用 Java 写桌面软件的不太多，Java 写出来的桌面软件可以实现跨平台运行(Windows, Linux, MacOS…)；<strong>C#</strong> 可以写 Web 后端，也可以写 Windows 桌面应用程序；<strong>PHP</strong> 主要就是用来写 Web 后端的，世界上有很多网站的后端都是用 PHP 写的，不过自从有了 Swoole 的加持，PHP 可以做很多事情了。</p>
+<h3 id="关于学习"><a href="#关于学习" class="headerlink" title="关于学习"></a>关于学习</h3><p>既然选择了它，就要好好去学。静下心来学习，你会有很大收获的。</p>
+<p>大多数人可能对英语比较头疼，毕竟这都是些国外的玩意儿。不过，真的不用怕，只要你有初中的英语水平就好了。什么？一点英语都不会？字母都不认识？那还是先学一点英语再来学编程吧。至少要认识基本的英语单词吧。编程中，英语单词就那么点，写来写去就那么些。有些还不是英语单词…..（就算英语厉害的也不认识，大家都一样）好吧，其实我英语也就初中水平（此处伤心脸）……也学到现在了，相信你也可以的。不过，英语在后期学习中就相当重要了。毕竟编程是国外的玩意儿，最新的资料都是英文的，想学习最新的技术一定要过英语这道坎儿。你总不能一直在学一些过时的东西吧。</p>
+<p>学习过程中肯定也会遇到各种各样的问题，搜索引擎是最好的老师。遇到问题，先自己想想，想不明白就去搜索，你遇到的问题其实别人早就遇到过了，看看别人是怎么解决的。搜索技术资料，首推 Google。至于某度？笑而不语。</p>
+<p>只看书，没卵用。编程是一门实践的艺术。多去动手敲敲这些代码，你会发现更多东西的。</p>
+<blockquote>
+<p>实践才是检验真理的唯一标准。</p>
+</blockquote>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>编程真的是一件好玩的事儿呢。好好享受它吧 ~</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        生活不止诗和远方，还有眼前的苟且。
+        
+    </div>
+    <footer>
+        <a href="http://veleven.tk">
+            <img src="/static/img/avatar.jpg" alt="Veleven">
+            Veleven
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程/">编程</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/07/25/talk-programming/&title=《编程杂谈》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/07/25/talk-programming/&title=《编程杂谈》 — MOV vx, 0x0b&source=编程语言的选择，历来就是圈子里的一个热门话题。随便说一句话，就能引发战争。
+
+PHP 是世界上最好的语言
+人生苦短，快学 Python 吧
+Java 大法..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/07/25/talk-programming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编程杂谈》 — MOV vx, 0x0b&url=http://veleven.tk/2019/07/25/talk-programming/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/07/25/talk-programming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/10/simple-php-guide/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">PHP 快速入门</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/09/play-with-tts/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">利用 TTS 来写点好玩的东西吧</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>MOV vx, 0x0b &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://wpa.qq.com/msgrd?v=3&uin=1878957669&site=qq&menu=yes" target="_blank">Veleven</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://veleven.tk/2019/07/25/talk-programming/&title=《编程杂谈》 — MOV vx, 0x0b&pic=http://veleven.tk/static/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://veleven.tk/2019/07/25/talk-programming/&title=《编程杂谈》 — MOV vx, 0x0b&source=编程语言的选择，历来就是圈子里的一个热门话题。随便说一句话，就能引发战争。
+
+PHP 是世界上最好的语言
+人生苦短，快学 Python 吧
+Java 大法..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://veleven.tk/2019/07/25/talk-programming/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《编程杂谈》 — MOV vx, 0x0b&url=http://veleven.tk/2019/07/25/talk-programming/&via=http://veleven.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://veleven.tk/2019/07/25/talk-programming/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://veleven.tk/2019/07/25/talk-programming/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.10"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.10" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'o(TヘTo) 你快回来!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(｡･∀･)ﾉﾞ 咦,回来咯!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
